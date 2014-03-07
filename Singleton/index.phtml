@@ -1,0 +1,20 @@
+<h1>Singleton</h1>
+<br>
+<?php
+require_once "../functions.php";
+
+use \Singleton\Config;
+use \Singleton\Example;
+
+$config = Config::getInstance();
+$config->setProperty('host', 'dev');
+var_dump($config);
+unset($config);
+
+$otherConfig = Config::getInstance();
+var_dump($otherConfig);
+echo $otherConfig->getProperty('host');
+
+$example = new Example();
+var_dump($example->getConfig());
+?>
