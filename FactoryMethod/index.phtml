@@ -1,1 +1,12 @@
 <h1>Factory Method</h1>
+<?php
+require_once "../functions.php";
+
+$meanderSignalManager = new \FactoryMethod\MeanderSignalManager();
+var_dump($meanderSignalManager->getSignalEncoder()->encode());
+var_dump($meanderSignalManager->getSignalForm());
+
+$periodicRectangularSignalManager = new \FactoryMethod\PeriodicRectangularSignalManager();
+var_dump($periodicRectangularSignalManager->getSignalEncoder()->encode());
+var_dump($periodicRectangularSignalManager->getSignalForm());
+?>
