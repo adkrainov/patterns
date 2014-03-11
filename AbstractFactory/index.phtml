@@ -1,0 +1,16 @@
+<h1>Abstract Factory</h1>
+<?php
+require_once "../functions.php";
+
+$position = rand(1, 2);
+
+switch ($position) {
+    case 1:
+        $countryService = new \AbstractFactory\DenmarkServiceManager();
+        break;
+    case 2:
+        $countryService = new \AbstractFactory\SwedenServiceManager();
+        break;
+}
+$application = new \AbstractFactory\Application($countryService);
+?>
