@@ -1,0 +1,19 @@
+<h1>Composite</h1>
+<?php
+require_once "../functions.php";
+
+$master = new Branch('master');
+$master->add(new Branch('functional'));
+$master->add(new Revision('first commit'));
+$master->add(new Revision('second commit'));
+
+$branch =  new Branch('payment');
+$branch->add(new Revision('1'));
+$branch->add(new Revision('2'));
+$master->add($branch);
+
+$master->add(new Revision('first commit'));
+
+$master->display();
+
+?>
