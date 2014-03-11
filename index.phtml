@@ -1,1 +1,13 @@
 <h1>Design Patterns</h1>
+<ul>
+    <?php
+    $skip = array('.', '..');
+    $files = scandir(__DIR__);
+
+    foreach ($files as $file) {
+        if (!in_array($file, $skip) && is_dir($file)) { ?>
+            <li><a href="<?php echo $file?>"><?php echo $file?></a></li>
+        <?php }
+    }
+    ?>
+</ul>
