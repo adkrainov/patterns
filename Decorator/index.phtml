@@ -1,0 +1,13 @@
+<h1>Decorator</h1>
+<?php
+require_once "../functions.php";
+
+$manVice = new \Decorator\ManVoice();
+$manVice->listen();
+echo "<br>";
+$loudManVoice = new \Decorator\LoudDecoratorVoice($manVice);
+$loudManVoice->listen();
+echo "<br>";
+$loudWithHighTimbreManVoice = new \Decorator\HighTimbreDecoratorVoice($loudManVoice);
+$loudWithHighTimbreManVoice->listen();
+?>
