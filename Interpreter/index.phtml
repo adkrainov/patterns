@@ -1,0 +1,37 @@
+<h1>Interpreter</h1>
+<?php
+require_once "../functions.php";
+
+$context = new \Interpreter\InterpreterContext();
+$input = new \Interpreter\VariableExpression('input');
+$statement = new \Interpreter\BooleanOrExpression(
+    new \Interpreter\EqualsExpression($input, new \Interpreter\LiteralExpression('Четыре')),
+    new \Interpreter\EqualsExpression($input, new \Interpreter\LiteralExpression('4'))
+);
+
+foreach (array('Четыре', '4', '52') as $val) {
+    $input->setValue($val);
+    print "$val:\n";
+    $statement->interpret($context);
+    if ($context->lookup($statement)) {
+        print "соответствует \n\n";
+    } else {
+        print "не соответствует \n\n";
+    }
+}
+
+$newContext = new \Interpreter\InterpreterContext();
+$newInput = new \Interpreter\VariableExpression('input');
+
+$newStatement = new \Interpreter\EqualsExpression(
+    $newInput,
+    new \Interpreter\PlusExpression(
+        new \Interpreter\LiteralExpression(12),
+        new \Interpreter\LiteralExpression(13)
+    )
+);
+echo "<br>second example<br>";
+$newInput->setValue(25);
+$newStatement->interpret($newContext);
+var_dump($newContext->lookup($newStatement));
+?>
