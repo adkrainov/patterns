@@ -1,0 +1,18 @@
+<h1>Strategy</h1>
+<?php
+require_once "../functions.php";
+$JSONRequestProcessor = new \Strategy\JSONRequestProcessor();
+$bankVTB = new \Strategy\VTBBank($JSONRequestProcessor);
+echo $bankVTB->sendRequest('connect')."<br>";
+echo $bankVTB->sendRequest('get statement')."<br>";
+echo $bankVTB->sendRequest('close connection')."<br>";
+
+
+echo "<br><h3>Second example</h3><br>";
+echo "<pre>";
+$xmlRequestProcessor = new \Strategy\XMLRequestProcessor();
+$bankVTB = new \Strategy\VTBBank($xmlRequestProcessor);
+echo $bankVTB->sendRequest('connect')."<br>";
+echo $bankVTB->sendRequest('get statement')."<br>";
+echo $bankVTB->sendRequest('close connection')."<br>";
+?>
