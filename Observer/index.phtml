@@ -1,0 +1,16 @@
+<h1>Observer</h1>
+<?php
+
+require_once "../functions.php";
+echo "CustomRealisation";
+echo "<br>";
+$login = new Observer\CustomRealisation\Login();
+$login->attach(new \Observer\CustomRealisation\SecurityMonitor());
+$login->handleLogin('i','1', '192.168.191.61');
+echo "<br>";
+echo "SplRealisation";
+echo "<br>";
+$login = new Observer\SplRealisation\Login();
+$login->attach(new \Observer\SplRealisation\SecurityMonitor());
+$login->handleLogin('i','1', '192.168.191.61');
+?>
