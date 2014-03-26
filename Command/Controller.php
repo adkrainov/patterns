@@ -22,9 +22,9 @@ class Controller
     {
         $cmd = CommandFactory::getCommand($this->context->getParam('action'));
         if (!$cmd->execute($this->context)) {
-            var_dump('ERROR');
+            print_r('ERROR');
         } else {
-            var_dump('OK');
+            print_r('OK');
         }
     }
 }

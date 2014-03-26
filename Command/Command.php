@@ -6,7 +6,7 @@ namespace Command;
 
 abstract class Command
 {
-    abstract function execute(ComandContext $context);
+    abstract function execute(\Command\CommandContext $context);
 }
 
 ?>

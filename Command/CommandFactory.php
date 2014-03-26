@@ -12,7 +12,8 @@ class CommandFactory
             throw new CommandNotFoundException('Not allowed symbols at command');
         }
         $class = ucfirst(strtolower($action)) . "Command";
-
-        return new $class();
+//var_dump($class); die;
+        return new LoginCommand();
+        //return new $class();
     }
 }

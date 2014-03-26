@@ -19,8 +19,14 @@ class UserManager
         if ($this->validUser == $user && $this->validPass == $pass) {
             $this->error = null;
             return $this;
+        } else {
+            $this->error = self::ERROR;
+            return null;
         }
+    }
 
-        return null;
+    public function getError()
+    {
+        return $this->error;
     }
 }
