@@ -1,0 +1,14 @@
+<h1>Visitor</h1>
+<?php
+require_once "../functions.php";
+use Visitor\Army;
+
+$army = new Army('root');
+$army->add(new Visitor\LaserCannonUnit('laser1'));
+$army->add(new Visitor\ArcherUnit('archy1'));
+
+$textDump = new Visitor\TextDumpArmyVisitor();
+$army->accept($textDump);
+print $textDump->getText();
+
+?>
